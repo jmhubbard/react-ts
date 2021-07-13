@@ -2,7 +2,7 @@ import React from "react";
 
 import { useRef } from "react";
 
-const NewTodos = () => {
+const NewTodos: React.FC<{onAddTodo: (text: string) => void}> = (props) => {
   const todoTextInputRef = useRef<HTMLInputElement>(null);
 
   const submitHandler = (event: React.FormEvent) => {
@@ -15,6 +15,7 @@ const NewTodos = () => {
         return;
     }
     //add todo to list of todos
+    props.onAddTodo(enteredText);
 
   };
 
